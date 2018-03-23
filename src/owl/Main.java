@@ -76,15 +76,15 @@ public class Main {
             for(int i = 0; i < toSum.size(); i++)
             {
                 rowSum += toSum.get(i).getData();
-                System.out.println(toSum.get(i).getData()+"+");
+                //System.out.println(toSum.get(i).getData()+"+");
                 toSum.set(i,toSum.get(i).getNext());
             }
             //summedHead = new Node();
             summedHead.setData((rowSum + remain) % 10);
             summedHead.setNextElementLink(new Node()); //ТОЛДЬКО ТУТ ОСТАЛОСЬ ВОТ-ВОТ!!!!
-            System.out.println("SUM: "+(rowSum + remain) % 10);
+            //System.out.println("SUM: "+(rowSum + remain) % 10);
             remain = (rowSum + remain) / 10;
-            System.out.println("REM: "+(rowSum + remain) / 10);
+            //System.out.println("REM: "+(rowSum + remain) / 10);
 
 
             summedHead = summedHead.getNext();
@@ -134,25 +134,25 @@ public class Main {
             sumTemp.setData((nodeSecond.getData() * nodeFirst.getData() + remain) % 10);
 
             //Node sumTemp = new Node((nodeSecond.getData() * nodeFirst.getData() + remain) % 10); //last digit
-            System.out.println("1st num: " + sumTemp.getData()); //log
+   //         System.out.println("1st num: " + sumTemp.getData()); //log
 
             remain = (nodeSecond.getData() * nodeFirst.getData() + remain) / 10;
-            System.out.println("1st remain: " + remain); //log
+//            System.out.println("1st remain: " + remain); //log
             nodeFirst = nodeFirst.getNext();
             while (nodeFirst.getNext() != null) {
                 sumTemp.setNextElementLink(new Node((nodeSecond.getData() * nodeFirst.getData() + remain) % 10));
-                System.out.println("Num: " + sumTemp.getNext().getData());
+                //System.out.println("Num: " + sumTemp.getNext().getData());
                 remain = (nodeSecond.getData() * nodeFirst.getData() + remain) / 10;
-                System.out.println("Remain: " + remain);
+                //System.out.println("Remain: " + remain);
 
                 nodeFirst = nodeFirst.getNext();
                 sumTemp = sumTemp.getNext();
 
             }
             sumTemp.setNextElementLink(new Node((nodeSecond.getData() * nodeFirst.getData() + remain) % 10));
-            System.out.println("Num: " + sumTemp.getNext().getData());
+            //System.out.println("Num: " + sumTemp.getNext().getData());
             remain = (nodeSecond.getData() * nodeFirst.getData() + remain) / 10;
-            System.out.println("Remain: " + remain);
+            //System.out.println("Remain: " + remain);
             if (remain != 0) {
                 sumTemp = sumTemp.getNext();
                 sumTemp.setNextElementLink(new Node(remain));
